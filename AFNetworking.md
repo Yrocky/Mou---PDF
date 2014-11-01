@@ -43,7 +43,8 @@
 
 #### `GET` Request
 
-```objective-c
+```
+objective-c
 AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
 [manager GET:@"http://example.com/resources.json" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
     NSLog(@"JSON: %@", responseObject);
@@ -54,7 +55,8 @@ AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager]
 
 #### `POST` URL-Form-Encoded Request
 
-```objective-c
+```
+objective-c
 AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
 NSDictionary *parameters = @{@"foo": @"bar"};
 [manager POST:@"http://example.com/resources.json" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -66,7 +68,8 @@ NSDictionary *parameters = @{@"foo": @"bar"};
 
 #### `POST` Multi-Part Request
 
-```objective-c
+```
+objective-c
 AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
 NSDictionary *parameters = @{@"foo": @"bar"};
 NSURL *filePath = [NSURL fileURLWithPath:@"file://path/to/image.png"];
@@ -175,14 +178,16 @@ NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completion
 
 Request serializers create requests from URL strings, encoding parameters as either a query string or HTTP body.
 
-```objective-c
+```
+objective-c
 NSString *URLString = @"http://example.com";
 NSDictionary *parameters = @{@"foo": @"bar", @"baz": @[@1, @2, @3]};
 ```
 
 #### Query String Parameter Encoding
 
-```objective-c
+```
+objective-c
 [[AFHTTPRequestSerializer serializer] requestWithMethod:@"GET" URLString:URLString parameters:parameters error:nil];
 ```
 
@@ -190,7 +195,8 @@ NSDictionary *parameters = @{@"foo": @"bar", @"baz": @[@1, @2, @3]};
 
 #### URL Form Parameter Encoding
 
-```objective-c
+```
+objective-c
 [[AFHTTPRequestSerializer serializer] requestWithMethod:@"POST" URLString:URLString parameters:parameters];
 ```
 
@@ -201,7 +207,8 @@ NSDictionary *parameters = @{@"foo": @"bar", @"baz": @[@1, @2, @3]};
 
 #### JSON Parameter Encoding
 
-```objective-c
+```
+objective-c
 [[AFJSONRequestSerializer serializer] requestWithMethod:@"POST" URLString:URLString parameters:parameters];
 ```
 
@@ -218,7 +225,8 @@ NSDictionary *parameters = @{@"foo": @"bar", @"baz": @[@1, @2, @3]};
 
 #### Shared Network Reachability
 
-```objective-c
+```
+objective-c
 [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
     NSLog(@"Reachability: %@", AFStringFromNetworkReachabilityStatus(status));
 }];
@@ -258,7 +266,8 @@ Adding pinned SSL certificates to your app helps prevent man-in-the-middle attac
 
 #### Allowing Invalid SSL Certificates
 
-```objective-c
+```
+objective-c
 AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
 manager.securityPolicy.allowInvalidCertificates = YES; // not recommended for production
 ```
@@ -273,7 +282,8 @@ Although `AFHTTPRequestOperationManager` is usually the best way to go about mak
 
 #### `GET` with `AFHTTPRequestOperation`
 
-```objective-c
+```
+objective-c
 NSURL *URL = [NSURL URLWithString:@"http://example.com/resources/123.json"];
 NSURLRequest *request = [NSURLRequest requestWithURL:URL];
 AFHTTPRequestOperation *op = [[AFHTTPRequestOperation alloc] initWithRequest:request];
