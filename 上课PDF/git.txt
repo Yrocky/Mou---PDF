@@ -1,0 +1,69 @@
+1.申请一个google邮箱 gmail
+2.注册一个Evernote（印象笔记）
+3.youmingyo@gmail.com
+
+github网站 可以下载源码
+学习git参考资料
+pro Git（http://git-scm.com/book） 
+blog－Scott chacon
+
+repository 仓库 snapshot 快照
+工作区  暂存区 仓库区
+git config —global user.name “名字”
+git config —global user.email “邮箱” 
+git init 创建一个git仓库
+git add  将文件提交到暂存区 
+git add *  将所有文件提交到暂存区 
+git commit  将文件提交
+git log   查看提交记录
+git status 查看仓库的状态
+git show “commit的“哈系数列”
+git commit -m “说明文字”（不用通过git编辑器来添加说明文字）
+git commit -a -m “说明文字”（直接提交到仓库 前提是已经进入到暂存区）
+git commit -a —amend -m “要修改的名字”（只能修改最近一次的注释说明）
+git rm “文件名” 删除文件(只在本仓库内有效)（执行完后进入暂存区）
+git mv “文件名” 重命名文件 （执行完后进入暂存区）
+
+git reset HEAD <file> 把处于缓冲区的文件移出缓冲区(HEAD 指向当前分支和最近一次提交)
+
+git checkout — <file> 撤销文件修改(修改处于移出缓冲区的状态)
+git clone URL (copy a git repository)(根据URL把仓库copy到当前目录)
+ex:git clone ssh://qingyun@192.168.1.166/Users/qingyun/Desktop/code/20140711/Git/test/prj/（远程clone 把prj（一个git仓库）copy到当前目录）
+
+对文件内容的改动会使文件变成未暂存区
+
+git diff 文件名 列出仓库文件与处于工作区文件的区别
+
+git diff －－stage 文件名1  文件名2 列出处于工作区与暂存区的文件区别
+
+git stash 放到回收站  git stash apply从回收站取回来
+
+git tag -a 名字 -m “具体描述“ <commit 哈希数列>（不写的话默认最近一次仓库）写的话指定某一个commit
+git show “表签名” 列出表签名信息
+
+git tag 查看git
+
+建立一个名字是.gitignore的文件 里面写入自己不需要管理的文件如：*~
+
+git branch “分支名” 创建一个分支
+git branch -a 列出所有分支（包含远端分支）
+git branch －d “所要删除的分支名”
+git checkout （－b） 分支名 切换分支  如果分支不存在 就创建他（－b）的作用
+git cat-file  -p “哈希散列数” 列出该哈希散列数在仓库中所对应的信息 
+git config —global core.editor vim  将git 编辑器设为vim
+git remote add origin(默认的服务器名)“URL” 建立本地与远程仓库的联系
+
+本地元远端仓库建立一个关联 git romote add 服务器名  URL
+git init —bare 创建一个可以远程访问的仓库（裸仓库）可以clone 也可以推送
+git reset —hard “哈希散列数” 回到指定的commit（不推荐使用）
+git branch “分支名” “哈希散列”  在指定的哈希散数后面添加一个新分支
+
+git fetch 《分支名》 更新远端仓库的分支和数据
+
+git checkout －－track origin（服务器）／testbranch（本地分支）跟踪远端分支
+git pull origin （本地分支）：teacher（远端分支名）  从远端
+git push origin（qingyun默认的名字） “文件所在分支名” 推送到服务器的远端分支(当前处于分支名所在的分支)
+ git push origin（默认的名字） （空）：“远端分支名” 删除远端分支
+master分支用于版本发布
+develop分支用于开发
+ 
